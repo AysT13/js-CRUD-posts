@@ -3,40 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create post</title>
+    <title>Create Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-        <div class="container">
+    <div class="container">
       <h1>Create Post</h1>
 
-    <form id="createPostForm">
+      <form id="createPostForm">
+        <label for="postTitle">Title</label>
+        <input
+          type="text"
+          id="postTitle"
+          name="postTitle"
+          class="input-box"
+          required
+        />
 
-      <label for="postTitle">Title</label>
-      <input type="text" id="postTitle" name="postTitle" class="input-box" required/>
+        <label for="postBody">Body</label>
+        <textarea
+          name="postBody"
+          id="postBody"
+          class="input-box"
+          required
+        ></textarea>
 
-      <label for="postBody">Body</label>
-      <textarea name="postBody" id="postBody" class="input-box" required></textarea>
+        <div class="button-row">
+          <a href="index.html" class="button button--secondary">Back</a>
 
-
-
-<div class="button-row">
-      <button class="button button--success" type="submit">
-        Create a post
-      </button>
-
-      <a href="index.html" class="button button--secondary">Back</a>
+          <button class="button button--success" type="submit">Save</button>
+        </div>
+        <p id="status" class="status"></p>
+      </form>
+      <div></div>
     </div>
-
-      <p id="status" class="status"></p>
-      <h2 id="newPostTitle" class="status"></h2>
-      <p id="newPostBody" class="status"></p>
-
-    </form>
-    <div>
-      
-    </div>
-</div>
     <script src="./global.js"></script>
     <script src="./create.js"></script>
   </body>

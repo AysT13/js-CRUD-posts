@@ -3,38 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Update post</title>
+    <title>Update Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="container" id="container">
-    <h1>Update Post Page</h1>
+      <h1>Update Post</h1>
 
-    <!-- Update form -->
-    <form id="updatePostForm">
-    <input type="hidden" id="postId" />
+      <!-- Update form -->
+      <form id="updatePostForm">
+        <input type="hidden" id="postId" />
 
-    <label for="editTitle">Title</label>
-    <input type="text" id="editTitle" class="input-box" required />
+        <label for="editTitle">Title</label>
+        <input type="text" id="editTitle" class="input-box" required />
 
-    <label for="editBody">Body</label>
-    <textarea id="editBody" class="input-box" required ></textarea>
+        <label for="editBody">Body</label>
+        <textarea id="editBody" class="input-box" required></textarea>
 
-  
+        <div class="button-row">
+          <a href="index.html" class="button button--secondary">Back</a>
+          <button class="button button--success" type="submit">Save</button>
+        </div>
 
-   <div class="button-row">
-    <button class="button button--success" type="submit">Save changes</button>
-    <a href="index.html" class="button button--secondary">Back</a>
+        <!-- Status message -->
+        <p id="updateStatus" class="status"></p>
+        <!-- <h2 id="updatedPostTitle" class="status"></h2>
+        <p id="updatedPostBody" class="status"></p> -->
+      </form>
     </div>
-  
-    <!-- Status message -->
-  <p id="updateStatus" class="status"></p>
-  <h2 id="updatedPostTitle" class="status"></h2>
-  <p id="updatedPostBody" class="status"></p>
-  </form>
-
- 
-</div>
 
     <script src="./global.js"></script>
     <script src="./update.js"></script>

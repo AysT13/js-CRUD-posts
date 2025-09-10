@@ -8,4 +8,4 @@ A simple CRUD app using JSONPlaceholder API.
 
 ## How to Run
 Open `index.html` with a local server (like VS Code Live Server).  
-Click **Fetch all posts** to load posts.  
+Click **Show All Posts** to load posts.  

@@ -1,53 +1,55 @@
-
 document
-  .getElementById('createPostForm')
-  .addEventListener('submit', createPost);
+  .getElementById("createPostForm")
+  .addEventListener("submit", createPost);
+
+const postTitleEl = document.getElementById("postTitle");
+const postBodyEl = document.getElementById("postBody");
+const statusEl = document.getElementById("status");
+
+[postTitleEl, postBodyEl].forEach((el) => {
+  el.addEventListener("input", () => {
+    statusEl.style.display = "none";
+    statusEl.classList.remove("success", "error");
+    statusEl.innerText = "";
+  });
+});
 
 function createPost(e) {
   e.preventDefault();
 
-  const postTitleEl = document.getElementById('postTitle');
-  const postBodyEl = document.getElementById('postBody');
-  const status  = document.getElementById('status');
-
   const postTitle = postTitleEl.value.trim();
   const postBody = postBodyEl.value.trim();
 
+  statusEl.classList.remove("success", "error");
 
-   if (!postTitle || !postBody) {
-    status.innerText = 'Please fill in both title and body.';
-   status.style.color = 'red';
+  if (!postTitle || !postBody) {
+    statusEl.style.display = "block";
+    statusEl.innerText = "Please fill in both title and body.";
+    statusEl.classList.add("error");
     return;
   }
 
-  // TODO: add input validation for  both inputs
-
   fetch(URL, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({
       title: postTitle,
       body: postBody,
       userId: 1,
     }),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      "Content-type": "application/json; charset=UTF-8",
     },
   })
-    .then((response) =>  response.json())
+    .then((response) => response.json())
+
     .then((json) => {
-      // TODO: Show confirmation to the user on the screen that the post was created and the content of the post.
-      console.log(json);
-
-      document.getElementById('status').innerText = 'Post is created successfully!';
-       document.getElementById('status').style.color = 'green';
-
-
-      document.getElementById('newPostTitle').innerText = `Post Title: ${json.title}`;
-      document.getElementById('newPostBody').innerText  = `Post Body: ${json.body}`; 
-
-      postTitleEl.value='';
-      postBodyEl.value='';
-
-       
-      });
+      statusEl.style.display = "block";
+      statusEl.innerText = "Post created successfully!";
+      statusEl.classList.add("success");
+    })
+    .catch(() => {
+      statusEl.style.display = "block";
+      statusEl.innerText = "Error creating post.";
+      statusEl.classList.add("error");
+    });
 }
